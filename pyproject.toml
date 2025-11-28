@@ -11,21 +11,16 @@ license = { file = "LICENSE" }
 authors = [
     { name = "Sietze van Buuren", email = "s.van.buuren@gmail.com" }
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.12"
 classifiers = [
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
 urls = { Homepage = "https://github.com/swvanbuuren/pqthreads" }
 dependencies = [
-    "PySide6",
-    "wrapt",
+    "pyside6>=6.10.1",
+    "wrapt>=2.0.1",
 ]
 
 [dependency-groups]
