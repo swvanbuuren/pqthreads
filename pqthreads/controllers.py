@@ -104,7 +104,7 @@ class GUIAgency(QtCore.QObject): # pylint: disable=too-many-instance-attributes
     def get_application():
         """ Returns the QApplication instance """
         for attribute in params.application_attributes:
-            QtWidgets.QApplication.setAttribute(attribute)
+            QtWidgets.QApplication.setAttribute(attribute.atype, attribute.on)
         if not QtWidgets.QApplication.instance():
             return QtWidgets.QApplication(sys.argv)
         return QtWidgets.QApplication.instance()

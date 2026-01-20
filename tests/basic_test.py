@@ -155,7 +155,7 @@ def test_multiple_decorator_keyword_arguments():
 def test_set_application_attribute():
     """ Test setting an application attribute via configuration """
 
-    params.add_application_attribute(QtCore.Qt.ApplicationAttribute.AA_ShareOpenGLContexts)
+    params.set_application_attribute(QtCore.Qt.ApplicationAttribute.AA_ShareOpenGLContexts)
 
     try:
         @worker.decorator_example
@@ -171,4 +171,5 @@ def test_set_application_attribute():
         else:
             pytest.fail("QApplication instance was not created")
     finally:
-        params.application_attributes.clear()
+        params.set_application_attribute(QtCore.Qt.ApplicationAttribute.AA_ShareOpenGLContexts, on=False)
+        QtWidgets.QApplication.setAttribute(QtCore.Qt.ApplicationAttribute.AA_ShareOpenGLContexts, on=False)
