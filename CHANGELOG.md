@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v0.6.1 (2026-01-20)
+
+### Bug Fixes
+
+* Match actual setattribute interface ([`dac1dbd`](https://github.com/swvanbuuren/pqthreads/commit/dac1dbd59f82de7912b3a5b84c096d4145a14198))
 ## v0.6.0 (2026-01-20)
 
 ### Features

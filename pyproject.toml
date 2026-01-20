@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pqthreads"
-version = "0.6.0"
+version = "0.6.1"
 description = "Expose class interfaces from the main GUI Thread in another QThread in Qt for Python"
 readme = "README.md"
 license = { file = "LICENSE" }
