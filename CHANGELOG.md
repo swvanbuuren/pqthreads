@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v0.6.0 (2026-01-20)
+
+### Features
+
+* Add config parameter application_attributes ([`e720a2d`](https://github.com/swvanbuuren/pqthreads/commit/e720a2d257ca68884e298735a8a90a9a71a2c0d4))
 ## v0.5.0 (2025-11-28)
 
 ### Chores
