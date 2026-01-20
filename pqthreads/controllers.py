@@ -10,6 +10,7 @@ from pqthreads import agents
 from pqthreads import utils
 from pqthreads import containers
 from pqthreads import refs
+from pqthreads.config import params
 
 
 class WorkerAgency(QtCore.QObject):
@@ -102,6 +103,8 @@ class GUIAgency(QtCore.QObject): # pylint: disable=too-many-instance-attributes
     @staticmethod
     def get_application():
         """ Returns the QApplication instance """
+        for attribute in params.application_attributes:
+            QtWidgets.QApplication.setAttribute(attribute)
         if not QtWidgets.QApplication.instance():
             return QtWidgets.QApplication(sys.argv)
         return QtWidgets.QApplication.instance()

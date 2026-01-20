@@ -3,6 +3,8 @@
 import pytest
 from pqthreads.examples import window
 from pqthreads.examples import worker
+from pqthreads.config import params
+from pqthreads.qt import QtCore, QtWidgets
 
 
 def test_empty():
@@ -148,3 +150,25 @@ def test_multiple_decorator_keyword_arguments():
     main()
     assert worker.global_kwargs['first_kwarg'] == 'first_arg'
     assert worker.global_kwargs['second_kw'] == 'second_arg'
+
+
+def test_set_application_attribute():
+    """ Test setting an application attribute via configuration """
+
+    params.add_application_attribute(QtCore.Qt.ApplicationAttribute.AA_ShareOpenGLContexts)
+
+    try:
+        @worker.decorator_example
+        def main():
+            """ Helper function """
+            fig = worker.figure()
+            fig.close()
+
+        main()
+
+        if app := QtWidgets.QApplication.instance():
+            assert app.testAttribute(QtCore.Qt.ApplicationAttribute.AA_ShareOpenGLContexts) is True
+        else:
+            pytest.fail("QApplication instance was not created")
+    finally:
+        params.application_attributes.clear()
